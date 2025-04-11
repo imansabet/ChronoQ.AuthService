@@ -1,4 +1,5 @@
 using ChronoQ.AuthService.API.Features.Auth.RequestOtp;
+using ChronoQ.AuthService.API.Features.Auth.VerifyOtp;
 using ChronoQ.AuthService.Application.Services.Implementations;
 using ChronoQ.AuthService.Application.Services.Interfaces;
 using ChronoQ.AuthService.Infrastructure.Redis;
@@ -41,6 +42,7 @@ if (app.Environment.IsDevelopment())
 
 
 app.MapRequestOtp();
+app.MapVerifyOtp();
 
 app.UseHttpsRedirection();
 
