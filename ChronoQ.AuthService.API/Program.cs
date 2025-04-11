@@ -2,7 +2,10 @@ using ChronoQ.AuthService.API.Features.Auth.RequestOtp;
 using ChronoQ.AuthService.API.Features.Auth.VerifyOtp;
 using ChronoQ.AuthService.Application.Services.Implementations;
 using ChronoQ.AuthService.Application.Services.Interfaces;
+using ChronoQ.AuthService.Infrastructure.Persistence;
 using ChronoQ.AuthService.Infrastructure.Redis;
+using ChronoQ.AuthService.Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,10 +29,13 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
     }
 });
 
+builder.Services.AddDbContext<AuthDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddScoped<IOtpStore, RedisOtpStore>();
 builder.Services.AddScoped<IOtpService, OtpService>();
-
-
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 var app = builder.Build();
 
