@@ -5,5 +5,5 @@ namespace ChronoQ.AuthService.Application.Services.Interfaces;
 
 public interface IJwtService
 {
-    TokenResult GenerateTokens(User user);
+    Task<TokenResult> GenerateTokensAsync(User user);
 }

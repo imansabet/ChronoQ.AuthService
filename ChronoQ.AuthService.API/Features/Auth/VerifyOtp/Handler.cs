@@ -22,7 +22,7 @@ public class VerifyOtpHandler
             return Results.BadRequest(new { message = "Invalid or expired OTP." });
 
         var user = await _userService.GetOrCreateUserAsync(command.PhoneNumber);
-        var tokens = _jwtService.GenerateTokens(user);
+        var tokens = await _jwtService.GenerateTokensAsync(user);
 
         return Results.Ok(tokens);
     }

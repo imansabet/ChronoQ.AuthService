@@ -12,13 +12,15 @@ namespace ChronoQ.AuthService.Infrastructure.Services;
 public class JwtService : IJwtService
 {
     private readonly IConfiguration _config;
+    private readonly IRefreshTokenService _refreshTokenService;
 
-    public JwtService(IConfiguration config)
+    public JwtService(IConfiguration config, IRefreshTokenService refreshTokenService)
     {
         _config = config;
+        _refreshTokenService = refreshTokenService;
     }
 
-    public TokenResult GenerateTokens(User user)
+    public async Task<TokenResult> GenerateTokensAsync(User user)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -30,16 +32,18 @@ public class JwtService : IJwtService
             new Claim(ClaimTypes.Role, user.Role)
         };
 
-        var token = new JwtSecurityToken(
+        var accessToken = new JwtSecurityToken(
             _config["Jwt:Issuer"],
             _config["Jwt:Audience"],
             claims,
             expires: DateTime.UtcNow.AddHours(1),
             signingCredentials: creds);
 
+        var refreshToken = await _refreshTokenService.CreateAsync(user.Id);
+
         return new TokenResult(
-            AccessToken: new JwtSecurityTokenHandler().WriteToken(token),
-            RefreshToken: Guid.NewGuid().ToString(), 
+            AccessToken: new JwtSecurityTokenHandler().WriteToken(accessToken),
+            RefreshToken: refreshToken.Token,
             ExpiresIn: 3600
         );
     }
