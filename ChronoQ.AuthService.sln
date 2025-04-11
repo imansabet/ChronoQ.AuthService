@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChronoQ.AuthService.API", "ChronoQ.AuthService.API\ChronoQ.AuthService.API.csproj", "{42BC2635-9D15-4202-B4CF-A4EBDD8DB851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChronoQ.AuthService.Application", "ChronoQ.AuthService.Application\ChronoQ.AuthService.Application.csproj", "{411EDFF6-F645-435A-ABC8-E49914D28AC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChronoQ.AuthService.Infrastructure", "ChronoQ.AuthService.Infrastructure\ChronoQ.AuthService.Infrastructure.csproj", "{4C6A9642-2EBD-4E61-ACBA-D6A431C281B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChronoQ.AuthService.Domain", "ChronoQ.AuthService.Domain\ChronoQ.AuthService.Domain.csproj", "{6003A308-A591-4445-A374-D125AE557FD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42BC2635-9D15-4202-B4CF-A4EBDD8DB851}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BC2635-9D15-4202-B4CF-A4EBDD8DB851}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BC2635-9D15-4202-B4CF-A4EBDD8DB851}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BC2635-9D15-4202-B4CF-A4EBDD8DB851}.Release|Any CPU.Build.0 = Release|Any CPU
+		{411EDFF6-F645-435A-ABC8-E49914D28AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411EDFF6-F645-435A-ABC8-E49914D28AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411EDFF6-F645-435A-ABC8-E49914D28AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411EDFF6-F645-435A-ABC8-E49914D28AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C6A9642-2EBD-4E61-ACBA-D6A431C281B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C6A9642-2EBD-4E61-ACBA-D6A431C281B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C6A9642-2EBD-4E61-ACBA-D6A431C281B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C6A9642-2EBD-4E61-ACBA-D6A431C281B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6003A308-A591-4445-A374-D125AE557FD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6003A308-A591-4445-A374-D125AE557FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6003A308-A591-4445-A374-D125AE557FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6003A308-A591-4445-A374-D125AE557FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
