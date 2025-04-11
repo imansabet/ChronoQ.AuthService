@@ -1,3 +1,4 @@
+using ChronoQ.AuthService.API.Features.Auth.RefreshToken;
 using ChronoQ.AuthService.API.Features.Auth.RequestOtp;
 using ChronoQ.AuthService.API.Features.Auth.VerifyOtp;
 using ChronoQ.AuthService.Application.Services.Implementations;
@@ -47,9 +48,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+// Endpoints
 app.MapRequestOtp();
 app.MapVerifyOtp();
+app.MapRefreshToken();
+
+
 
 app.UseHttpsRedirection();
 
