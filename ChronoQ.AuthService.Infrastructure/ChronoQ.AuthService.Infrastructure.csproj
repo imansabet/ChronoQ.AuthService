@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ChronoQ.AuthService.Domain\ChronoQ.AuthService.Domain.csproj" />
+    <ProjectReference Include="..\ChronoQ.AuthService.Application\ChronoQ.AuthService.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

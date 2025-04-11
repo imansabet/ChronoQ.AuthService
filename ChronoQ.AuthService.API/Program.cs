@@ -1,3 +1,5 @@
+using ChronoQ.AuthService.API.Features.Auth.RequestOtp;
+using ChronoQ.AuthService.Application.Services.Implementations;
 using ChronoQ.AuthService.Application.Services.Interfaces;
 using ChronoQ.AuthService.Infrastructure.Redis;
 using StackExchange.Redis;
@@ -24,6 +26,7 @@ builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 });
 
 builder.Services.AddScoped<IOtpStore, RedisOtpStore>();
+builder.Services.AddScoped<IOtpService, OtpService>();
 
 
 
@@ -36,6 +39,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+app.MapRequestOtp();
+
 app.UseHttpsRedirection();
 
 
@@ -43,7 +49,3 @@ app.UseHttpsRedirection();
 
 app.Run();
 
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
